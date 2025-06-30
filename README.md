@@ -1,29 +1,27 @@
 # Progra-III-TP-Integrador-2025
 
-## Josue Damacio - Leando Escobar
+#### Alumnos: Josue Damacio - Leando Escobar
 
+<img src="assets/img/logo-game-store.jpg" alt="Texto" width="300">
 
+<br><br><br><br>
 
-
-Por hacer:
-
-
-* **Back end: lado del admin**
+## **Back end: lado del admin**
 
 + agregar display total de productos en el index.html
 
-+ crear un boton que permita hacer get por ID
++ crear un boton que permita hacer get por ID ✅
 
-+ Funcionalidad de agregar producto verificando que los parametros sean correctos
++ Funcionalidad de agregar producto verificando que los parametros sean correctos ✅
 
-+ Poder modificar los productos que estan en la DB
++ Poder modificar los productos que estan en la DB 
 
-+ Poder eliminar los productos de la DB y esto se refleje del lado del cliente
++ Poder eliminar los productos de la DB y esto se refleje del lado del cliente ✅
+
+***
 
 
-
-
-* **Front end: lado del cliente**
+## **Front end: lado del cliente**
 
 + debe tener un carrito, agregar y eliminar productos, poder agregar varios del mismo tipo
 
