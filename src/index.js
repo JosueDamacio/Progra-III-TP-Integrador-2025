@@ -37,11 +37,7 @@ app.get("/",(req,res)=>{
     res.send("hola mundo");
 })
 
-app.listen(PORT,()=>{
-    console.log("servidor corriendo");
-})
-
-app.get("/products",(async(req,res) => {
+app.get("/productos",(async(req,res) => {
 
     try {
         let sql = 'SELECT * from productos';
@@ -66,11 +62,10 @@ app.post("/productos", async (req, res) => {
 
 
         if (!nombre || !imagen || !precio || !tipo) {
-    return res.status(400).json({
-        message: "Datos inválidos. Asegurate de enviar nombre, precio, tipo e imagen"
-    });
-}
-
+            return res.status(400).json({
+                message: "Datos inválidos. Asegurate de enviar nombre, precio, tipo e imagen"
+            });
+        }
 
         // Proteccion contra SQL injection, usamos placeholders ?
         let sql = `INSERT INTO productos (nombre, precio, tipo, imagen, activo) VALUES (?, ?, ?, ?, ?)`;
@@ -93,12 +88,10 @@ app.post("/productos", async (req, res) => {
     }
 });
 
-app.get("/products/:id", validateId ,async (req, res) => {
+app.get("/productos/:id", validateId ,async (req, res) => {
     try {
-        // let id = req.params.id
         let { id } = req.params;
 
-        // let sql = `SELECT * FROM products where id = ${id}`; // Consulta no optimizada porque permite inyeccion SQL
         let sql  = `SELECT * FROM productos where id = ?`;
 
         let [rows] = await connection.query(sql, [id]);
@@ -122,3 +115,41 @@ app.get("/products/:id", validateId ,async (req, res) => {
         });
     }
 });
+
+app.delete("/productos/:id", async (req, res) =>{
+    try {
+        let { id } = req.params;
+
+        if(!id) {
+            return res.status(400).json({
+                message: "Se requiere un id para eliminar un producto"
+            })
+        }
+
+        let sql = `DELETE FROM productos WHERE id = ?`;
+
+        let [result] = await connection.query(sql, [id]);
+
+        if(result.affectedRows === 0) {
+            return res.status(404).json({
+                message: `No se encontro un producto con id ${id}`
+            });
+        }
+
+        return res.status(200).json({
+            message: `Producto con id ${id} eliminado correctamente`
+        });
+
+    } catch (error) {
+        console.error("Error en DELETE /productos/:id", error);
+
+        res.status(500).json({
+            message: `Error al eliminar producto con id ${id}`, error,
+            error: error.message
+        });
+    }
+});
+
+app.listen(PORT,()=>{
+    console.log("servidor corriendo");
+})

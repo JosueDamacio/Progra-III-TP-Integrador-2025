@@ -41,20 +41,22 @@
 
                 <form id="altaProducts-form" autocomplete="off">
 
+                    <!-- ?los "name" fueron cambiados a español para coincidir con la DB -->
+                    
                     <label for="categoryProd">Categoria</label>
-                    <select name="category" id="categoryProd" required>
+                    <select name="tipo" id="categoryProd" required>
                         <option value="indi">indi</option>
                         <option value="aventura">aventura</option>
                     </select>
 
                     <label for="imagenProd">Imagen</label>
-                    <input type="text" name="image" id="imagenProd" required>
+                    <input type="text" name="imagen" id="imagenProd" required>
 
                     <label for="nombreUser">Nombre</label>
-                    <input type="text" name="name" id="nombreUser" required>
+                    <input type="text" name="nombre" id="nombreUser" required>
 
                     <label for="precioProd">Precio</label>
-                    <input type="number" name="price" id="precioProd" required>
+                    <input type="number" name="precio" id="precioProd" required>
 
                     
 
@@ -65,21 +67,20 @@
 
         </main>
 
-        <!-- Por tema legibilidad, incorporamos aca el JavaScript -->
+        <!-- ?los "name" fueron cambiados a español para coincidir con la DB -->
         <script>
             let altaProducts_form = document.getElementById("altaProducts-form");
 
             altaProducts_form.addEventListener("submit", async(event) => {
 
-                event.preventDefault(); // Evitamos el envio por defecto del formulario
+                event.preventDefault();
 
-                let formData = new FormData(event.target); // Obtenemos la data del formulario
+                let formData = new FormData(event.target);
 
-                let data = Object.fromEntries(formData.entries()); // Convertimos a objeto JS nuestro objeto formulario
-                console.log(data); // {category: 'food', image: 'imagen empanada', name: 'empanada', price: '60'}
-
-                // Validamos datos previamente en el cliente
-                if(!data.name || !data.image || !data.price) {
+                let data = Object.fromEntries(formData.entries());// Convertimos a objeto JS nuestro objeto formulario
+                console.log(data);
+                
+                if(!data.nombre || !data.precio || !data.imagen) {
                     alert("Todos los campos son obligatorios!");
                     return;
                 }

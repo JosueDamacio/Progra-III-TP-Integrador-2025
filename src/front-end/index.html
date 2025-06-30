@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Integrador 334</title>
+
+    <!-- Preset CSS -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <ul id="listado-nav">
+            <a href="index.html">
+                <li class="links-header"><span>GET</span></li>
+            </a>
+            
+            <a href="get.html">
+                <li class="links-header"><span>Get : id</span></li>
+            </a>
+            <a href="post.html">
+                <li class="links-header"><span>POST</span></li>
+            </a>
+            
+            <a href="put.html">
+                <li class="links-header"><span>PUT</span></li>
+            </a>
+            <a href="delete.html">
+                <li class="links-header"><span>DELETE</span></li>
+            </a>
+        </ul>
+
+        <hr>
+        <h1>Listado de productos</h1>
+        <hr>
+
+        <main id="contenedor-get">
+            <div id="productos-container">
+                <ul id="productos-lista">
+                    <!--
+                    <li class="li-listados productos-listados">
+                        <img src="" alt="" class="img-listados">
+                        <p>Id: / Nombre: / <strong>Precio: </strong></p>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </main>
+        <script>
+
+            async function obtenerDatosProductos() {
+                try {
+
+                    let respuesta = await fetch("http://localhost:3000/products");
+
+                    // Transformamos la respuesta a objetos JS
+                    let datos = await respuesta.json();
+
+                    console.log(datos);
+                    console.table(datos.payload);
+
+                    mostrarProductos(datos);
+
+                } catch(error) {
+                    console.error("Error:", error);
+                }
+            }
+
+            function mostrarProductos(array) {
+                let listaProductos = array.payload;
+
+                let productos_lista = document.getElementById("productos-lista");
+                let htmlProducto = "";
+
+                listaProductos.forEach(producto => {
+                    htmlProducto += `
+                        <li class="li-listados productos-listados">
+                            <img src="${producto.imagen}" alt="${producto.nombre}" class="img-listados">
+                            <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}$</strong></p>
+                        </li>
+                    `;
+                });
+
+                productos_lista.innerHTML = htmlProducto;
+            }
+
+            obtenerDatosProductos();
+        </script>
+</header>
+</body>
+</html>
