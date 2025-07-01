@@ -45,8 +45,8 @@
                     
                     <label for="categoryProd">Categoria</label>
                     <select name="tipo" id="categoryProd" required>
-                        <option value="indi">indi</option>
-                        <option value="aventura">aventura</option>
+                        <option value="indie">Idie</option>
+                        <option value="tripleA">Triple A</option>
                     </select>
 
                     <label for="imagenProd">Imagen</label>
@@ -86,7 +86,7 @@
                 }
 
                 try {
-                    let response = await fetch("http://localhost:3000/productos", {
+                    let response = await fetch("http://localhost:3000/api/productos", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

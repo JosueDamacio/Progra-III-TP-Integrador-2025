@@ -52,7 +52,7 @@
             async function obtenerDatosProductos() {
                 try {
 
-                    let respuesta = await fetch("http://localhost:3000/products");
+                    let respuesta = await fetch("http://localhost:3000/api/productos");
 
                     // Transformamos la respuesta a objetos JS
                     let datos = await respuesta.json();

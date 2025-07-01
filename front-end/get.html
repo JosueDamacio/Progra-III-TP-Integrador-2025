@@ -92,7 +92,7 @@
                         throw new Error(`Error en el envio de datos del formulario`);
                     }
 
-                    let response = await fetch(`http://localhost:3000/productos/${idProd}`);
+                    let response = await fetch(`http://localhost:3000/api/productos/${idProd}`);
 
                     ///////////////////
                     // Optimizacion 4: Manejamos el error en una posible respuesta no existosa
