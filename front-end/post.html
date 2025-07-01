@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="contenedor-pagina">
     <header>
         <ul id="listado-nav">
             <a href="index.html">
@@ -35,7 +36,9 @@
         <h1>Crear productos</h1>
         <hr>
 
-        <main id="contenedor-post">
+        </header>
+
+        <main id="productos-container">
             <div id="altaProducts-container" class="crudForm-container">
                 <h2>Alta producto</h2>
 
@@ -45,7 +48,7 @@
                     
                     <label for="categoryProd">Categoria</label>
                     <select name="tipo" id="categoryProd" required>
-                        <option value="indie">Idie</option>
+                        <option value="indie">Indie</option>
                         <option value="tripleA">Triple A</option>
                     </select>
 
@@ -113,6 +116,7 @@
 
             })
         </script>
-</header>
+
+</div>
 </body>
 </html>
