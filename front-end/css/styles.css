@@ -35,13 +35,14 @@ header {
 }
 
 .img-logo {
-    width: 60px;
+    width: 90px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px var(--color-acento);
 }
 
 .p-logo {
+    padding-left: 13%;
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--color-acento);
@@ -50,11 +51,11 @@ header {
 #listado-nav {
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 0;
     margin: 1rem 0;
     background-color: var(--color-secundario);
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 #listado-nav a {
@@ -117,12 +118,12 @@ h1 {
 
 @media (max-width: 768px) {
     #logo-nav {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
     }
 
     .img-logo {
-        width: 50px;
+        width: 80px;
     }
 
     #listado-nav {
