@@ -2,7 +2,7 @@
 
 #### Alumnos: Josue Damacio - Leando Escobar
 
-<img src="/front-end/assets/img/logo-game-store.jpg" alt="Texto" width="300">
+<img src="src\public\img\logo-game-store.jpg" alt="Texto" width="300">
 
 <br><br><br><br>
 
