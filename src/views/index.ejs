@@ -8,9 +8,8 @@
     <main id="contenedor-get">
         <div id="productos-container">
             <ul id="productos-lista">
-  
+                
                 <% products.forEach(prod => {  %>
-  
                     <li class="li-listados productos-listados">
                         <img src=" <%= prod.imagen %> " alt=" <%= prod.name %> " class="img-listados">
                         <p>Id: <%= prod.id %> / Nombre: <%= prod.nombre %> / <strong>Precio: <%= prod.precio %>  </strong></p>
