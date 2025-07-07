@@ -139,7 +139,11 @@
                 let result = await response.json();
 
                 if(response.ok) {
-                    alert(result.message);
+                    Swal.fire({
+                    icon: "success",
+                    title: "¡Producto eliminado!",
+                    text: result.message
+                    });
                     getId_lista.innerHTML = "";
                     return true;
 

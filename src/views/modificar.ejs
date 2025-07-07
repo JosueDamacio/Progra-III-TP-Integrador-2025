@@ -150,19 +150,19 @@
                     <input type="number" name="id" id="idProd" value=${producto.id} readonly>
 
                     <label for="categoryProd">Categoria</label>
-                    <select name="category" id="categoryProd" required>
-                        <option value="food">indie</option>
-                        <option value="drink">Triple A</option>
+                    <select name="tipo" id="categoryProd" required>
+                        <option value="indie">indie</option>
+                        <option value="tripleA">Triple A</option>
                     </select>
 
                     <label for="imagenProd">Imagen</label>
-                    <input type="text" name="image" id="imagenProd" value=${producto.imagen} required>
+                    <input type="text" name="imagen" id="imagenProd" value=${producto.imagen} required>
 
                     <label for="nombreUser">Nombre</label>
-                    <input type="text" name="name" id="nombreUser" value=${producto.nombre} required>
+                    <input type="text" name="nombre" id="nombreUser" value=${producto.nombre} >
 
                     <label for="precioProd">Precio</label>
-                    <input type="number" name="price" id="precioProd" value=${producto.precio} required>
+                    <input type="number" name="precio" id="precioProd" value=${producto.precio} required>
 
                     <input type="submit" value="Actualizar producto">
                 </form>
@@ -190,14 +190,20 @@
             let data = Object.fromEntries(formData.entries());
             console.table(data);
 
-            if(!data.name || !data.image || !data.price) {
-                alert("Todos los campos son obligatorios");
+            
+            if(!data.nombre || !data.imagen || !data.precio || !data.tipo) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Campos incompletos",
+                    text: "Todos los campos son obligatorios"
+                    });
                 return;
             }
 
+            
 
             try {
-                let response = await fetch(`${url}/products`, {
+                let response = await fetch(`${url}/productos`, {
                     method: "PUT",
                     headers: {
                         "Content-type" : "application/json",
@@ -210,7 +216,11 @@
 
                     let result = await response.json();
                     console.log(result.message);
-                    alert(result.message);
+                    Swal.fire({
+                    icon: "success",
+                    title: "¡Producto actualizado!",
+                    text: result.message
+                });
 
                     // Vaciamos si existiera la lista y el formulario de actualizacion del producto
                     getId_lista.innerHTML = "";
@@ -218,7 +228,11 @@
 
                 } else {
                     let error = await response.json();
-                    console.log("Error", error.message)
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error al actualizar",
+                        text: error.message
+                    });
                 }
 
             } catch (error) {

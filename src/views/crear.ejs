@@ -55,7 +55,11 @@
 
             // Validamos datos previamente en el cliente
             if(!data.nombre || !data.imagen || !data.precio) {
-                alert("Todos los campos son obligatorios!");
+                Swal.fire({
+                    icon: "warning",
+                    title: "Campos incompletos",
+                    text: "Todos los campos son obligatorios"
+                    });
                 return;
             }
 
@@ -73,11 +77,19 @@
 
                     let result = await response.json();
                     console.log(result.message);
-                    alert(result.message);
+                    Swal.fire({
+                    icon: "success",
+                    title: "¡Producto creado!",
+                    text: result.message
+                    });
 
                 } else {
                     let error = await response.json();
-                    console.log("Error:", error.message);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error al crear",
+                        text: error.message
+                    });
                 }
 
             } catch {
