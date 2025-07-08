@@ -1,10 +1,10 @@
 :root {
-    --color-fondo: #0D1B2A;
-    --color-primario: #1B263B;
-    --color-secundario: #415A77;
-    --color-acento: #778DA9;
-    --color-claro: #E0E1DD;
-    --color-blanco: #ffffff;
+    --color-fondo: #1B0A2A;       
+    --color-primario: #3D1E6D;     
+    --color-secundario: #6A4FB6;  
+    --color-acento: #A084DC;      
+    --color-claro: #D8CCF1;        
+    --color-blanco: #ffffff;  
 }
 
 /* ====== Body & General ====== */
@@ -73,8 +73,6 @@ header {
     background-color: var(--color-acento);
     color: var(--color-fondo);
 }
-
-
 
 /* ====== Títulos ====== */
 h1 {
@@ -173,9 +171,3 @@ h1 {
         font-size: 0.95rem;
     }
 }
-
-
-/* pruebas con bootstrap
-
-
- */
