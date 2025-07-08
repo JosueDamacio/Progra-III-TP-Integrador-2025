@@ -69,7 +69,11 @@
                 ///////////////////
                 // Optimizacion 4: Manejamos el error en una posible respuesta no existosa
                 if(!response.ok) {
-                    throw new Error(`Error ${response.status}: ${response.statusText}`); // Error 404: Not Found
+                    throw new Error(Swal.fire({
+                    icon: "warning",
+                    title: "NO EXISTE",
+                    text: "No hay un producto con ese id"
+                    })); // Error 404: Not Found
                 }
 
 

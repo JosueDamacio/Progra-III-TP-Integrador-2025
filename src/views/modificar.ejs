@@ -92,13 +92,9 @@
                     throw new Error("No se encontro el producto solicitado")
                 }
                 
-
-
                 // Guardamos nuestro producto en una variable
                 let producto = datos.payload[0];
-                console.log(producto); // {"id": 2, "name": "hamburguesa salmon", "image": "https://burgernj.com/wp-content/uploads/2021/05/Salmon-Burger_.jpg", "category": "food", "price": "2500.00", "active": }
-
-
+                
                 // Le agregamos el boton que permita actualizar este producto encontrado
                 let htmlProducto = `
                     <li class="li-listados productos-listados">
@@ -159,7 +155,7 @@
                     <input type="text" name="imagen" id="imagenProd" value=${producto.imagen} required>
 
                     <label for="nombreUser">Nombre</label>
-                    <input type="text" name="nombre" id="nombreUser" value=${producto.nombre} >
+                    <input type="text" name="nombre" id="nombreUser" value="${producto.nombre}" >
 
                     <label for="precioProd">Precio</label>
                     <input type="number" name="precio" id="precioProd" value=${producto.precio} required>
@@ -199,8 +195,6 @@
                     });
                 return;
             }
-
-            
 
             try {
                 let response = await fetch(`${url}/productos`, {
