@@ -32,9 +32,9 @@
 
 + debe tener un carrito, agregar y eliminar productos, poder agregar varios del mismo tipo 🔼
 
-+ Agregar estilos con bootstrap ✴️
++ Agregar estilos al login y display de productos ✅
 
-+ debe haber productos activos (y desactivados que no sean visibles para el cliente) 🔼
++ debe haber productos activos (y desactivados que no sean visibles para el cliente) ✴️
 
 + en la DB debe persistir las ventas exitosas con: nombreUsuario, fecha y precio total 🔼
 
