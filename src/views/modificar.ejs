@@ -3,7 +3,6 @@
 
     <hr>
     <h1><%= title %></h1>
-    
     <hr>
 
     <main id="productos-container">
@@ -81,7 +80,6 @@
                     throw new Error(`Error ${response.status}: ${response.statusText}`); // Error 404: Not Found
                 }
 
-
                 let datos = await response.json();
                 console.log(datos);
 
@@ -97,13 +95,16 @@
                 
                 // Le agregamos el boton que permita actualizar este producto encontrado
                 let htmlProducto = `
-                    <li class="li-listados productos-listados">
-                        <div class="li-listados_datos">
-                            <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: $${producto.precio}</strong></p>
-                            <img src="${producto.imagen}" alt="${producto.nombre}" class="img-listados">
+                    <li class="productos-listados">
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
+                        <div class="info-producto">
+                            <p><strong>Id:</strong> ${producto.id}</p>
+                            <p><strong>Categoría:</strong> ${producto.tipo}</p>
+                            <p><strong>Nombre:</strong> ${producto.nombre}</p>
+                            <p><strong>Precio:</strong> $${producto.precio}</p>
                         </div>
-                        <div class="li-listados_boton">
-                            <input class="listados_boton" id="updateProduct_button" type="button" value="Actualizar producto">
+                        <div class="acciones-producto">
+                            <button id="updateProduct_button">Actualizar</button>
                         </div>
                     </li>
                 `;
@@ -126,8 +127,6 @@
             }
         });
 
-
-
         //////////
         // PUT //
 
@@ -147,8 +146,8 @@
 
                     <label for="categoryProd">Categoria</label>
                     <select name="tipo" id="categoryProd" required>
-                        <option value="indie">indie</option>
-                        <option value="tripleA">Triple A</option>
+                        <option value="videojuego">videojuego</option>
+                        <option value="consola">consola</option>
                     </select>
 
                     <label for="imagenProd">Imagen</label>
@@ -234,8 +233,6 @@
                 alert("Error al procesar la solicitud");
             }
         }
-
-
     </script>
 
 <%- include("partials/footer.ejs") %>

@@ -86,16 +86,18 @@
                     throw new Error("No se encontro el producto solicitado")
                 }
                 
-
-
                 // Guardamos nuestro producto en una variable
                 let producto = datos.payload[0];
-                console.log(producto); // {"id": 2, "name": "hamburguesa salmon", "image": "https://burgernj.com/wp-content/uploads/2021/05/Salmon-Burger_.jpg", "category": "food", "price": "2500.00", "active": }
 
                 let htmlProducto = `
                     <li id="producto-encontrado" class="li-listados productos-listados">
                         <img src="${producto.imagen}" alt="${producto.nombre}" class="img-listados">
-                        <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}$</strong></p>
+                        
+                        <div class="info-producto">
+                            <p><strong>Id:</strong> ${producto.id}</p>
+                            <p><strong>Nombre:</strong> ${producto.nombre}</p>
+                            <p><strong>Precio:</strong> $${producto.precio}</p>
+                        </div>
                     </li>
                 `;
 

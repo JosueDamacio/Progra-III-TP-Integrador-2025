@@ -10,11 +10,15 @@
             <ul id="productos-lista">
                 
                 <% products.forEach(prod => {  %>
-                    <li class="li-listados productos-listados">
-                        <img src=" <%= prod.imagen %> " alt=" <%= prod.name %> " class="img-listados">
-                        <p>Id: <%= prod.id %> / Nombre: <%= prod.nombre %> / <strong>Precio: <%= prod.precio %>  </strong></p>
-                    </li> 
-    
+                     <li class="productos-listados">
+                    <img src="<%= prod.imagen %>" alt="<%= prod.nombre %>">
+                    <div class="info-producto">
+                        <p><strong>Id:</strong> <%= prod.id %></p>
+                        <p><strong>Categoría:</strong> <%= prod.tipo %></p>
+                        <p><strong>Nombre:</strong> <%= prod.nombre %></p>
+                        <p><strong>Precio:</strong> $<%= prod.precio %></p>
+                    </div>
+                    </li>
                 <% }) %>
             </ul>
         </div>

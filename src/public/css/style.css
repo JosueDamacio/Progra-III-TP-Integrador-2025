@@ -113,6 +113,49 @@ h1 {
     color: var(--color-blanco);
 }
 
+/* Listado get*/
+
+.productos-listados {
+    background-color: var(--color-primario);
+    border-left: 8px solid var(--color-acento);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    margin: 10px;
+}
+
+.productos-listados:hover {
+    transform: scale(1.01);
+}
+
+.productos-listados img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--color-primario);
+}
+
+.info-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.info-producto p {
+    margin: 0;
+    color: var(--color-blanco);
+    font-size: 1rem;
+}
+
+.info-producto p strong {
+    color: var(--color-acento); 
+    font-weight: bold;
+}
 
 @media (max-width: 768px) {
     #logo-nav {
